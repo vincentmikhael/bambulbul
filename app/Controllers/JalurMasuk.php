@@ -30,7 +30,6 @@ class JalurMasuk extends BaseController
             'dpsp' => $this->request->getPost('dpsp'),
             'dpp' => $this->request->getPost('dpp'),
             'bopp' => $this->request->getPost('bopp'),
-            'promo' => $this->request->getPost('promo'),
             'kuota' => $this->request->getPost('kuota'),
         ];
         $this->ModelJalurMasuk->insertData($data);
@@ -47,7 +46,6 @@ class JalurMasuk extends BaseController
             'dpsp' => $this->request->getPost('dpsp'),
             'dps' => $this->request->getPost('dps'),
             'bopp' => $this->request->getPost('bopp'),
-            'promo' => $this->request->getPost('promo'),
             'kuota' => $this->request->getPost('kuota'),
         ];
         $this->ModelJalurMasuk->editData($data);

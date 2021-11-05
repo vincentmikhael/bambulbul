@@ -19,7 +19,6 @@
                             <th width="70px">#</th>
                             <th>No Pendaftaran</th>
                             <th>Tahun</th>
-                            <th>NISN</th>
                             <th>Nama</th>
                             <th>Jalur Masuk</th>
                             <th>Formulir</th>
@@ -39,7 +38,6 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $value['no_pendaftaran'] ?></td>
                                 <td><label class="badge badge-success"><?= $value['tahun'] ?></label></td>
-                                <td><?= $value['nisn'] ?></td>
                                 <td><?= $value['nama_lengkap'] ?></td>
                                 <td><label class="badge badge-warning"><?= $value['jalur_masuk'] ?></label></td>
                                 <td><?= rupiah($value['formulir']) ?></td>
@@ -71,14 +69,23 @@
                                     foreach ($value['potongan'] as $x) {
 
                                         if ($x->type == 'formulir') {
-                                            $total += intval($value['formulir'] - ($value['formulir'] * 100 / 100));
+                                            $total += intval($value['formulir'] - ($value['formulir'] * $x->potongan / 100));
                                         }
                                         if ($x->type == 'dpsp') {
-                                            $total += intval($value['dpsp'] - (($value['dpsp'] * 50) / 100));
+                                            $total += intval($value['dpsp'] - (($value['dpsp'] * $x->potongan) / 100));
+                                        }
+                                        if ($x->type == 'dps') {
+                                            $total += intval($value['dps'] - (($value['dps'] * $x->potongan) / 100));
+                                        }
+                                        if ($x->type == 'bopp') {
+                                            $total += intval($value['bopp'] - (($value['bopp'] * $x->potongan) / 100));
                                         }
                                     }
-                                    echo rupiah($total + $value['dps'] + $value['bopp']);
+                                    echo rupiah($total);
                                     ?>
+                                </td>
+                                <td>
+                                    PIUTANG
                                 </td>
 
                             </tr>

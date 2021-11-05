@@ -9,7 +9,7 @@
             </div>
             <div class="card-body p-0">
 
-                <table id="example1" class="table table-bordered table-striped">
+                <table id="example2" class="table table-bordered table-striped">
                     <thead>
                         <tr>
                             <th width="70px">#</th>
@@ -24,7 +24,7 @@
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        foreach ($ppdb as $key => $value) { ?>
+                        foreach ($data as $key => $value) { ?>
                             <tr>
                                 <td><?= $no++ ?></td>
                                 <td><?= $value['no_pendaftaran'] ?></td>
@@ -32,7 +32,25 @@
                                 <td><?= $value['nisn'] ?></td>
                                 <td><?= $value['nama_lengkap'] ?></td>
                                 <td><label class="badge badge-warning"><?= $value['jalur_masuk'] ?></label></td>
-                                <td>potongan promo</td>
+                                <td>
+                                    <ul class="ml-1 pl-1">
+                                        <?php foreach ($value['potongan'] as $x) { ?>
+                                            <li>
+                                                <?= $x->type; ?>
+                                                (
+                                                <?php
+                                                if ($x->potongan == 100) {
+                                                    echo "Free";
+                                                } else {
+                                                    echo $x->potongan . "%";
+                                                }
+                                                ?>
+                                                )
+                                            </li>
+
+                                        <?php } ?>
+                                    </ul>
+                                </td>
                                 <td>
                                     <a href="<?= base_url('PendaftaranSiswa/detailDataKeuangan/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-primary"><i class="fas fa-eye"></i> View</a>
                                     <a href="<?= base_url('PendaftaranSiswa/editDataKeuangan/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-success"><i class="fas fa-eye"></i> Edit</a>

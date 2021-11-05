@@ -53,13 +53,22 @@ class PendaftaranSiswa extends BaseController
 
     public function listMasukKeuangan()
     {
+        $db = \Config\Database::connect();
         $data = [
             'title' => 'PPDB Online',
-            'subtitle' => 'List Siswa',
+            'subtitle' => 'Detail Siswa',
             'ppdb' => $this->ModelPendaftaranSiswa->getPpdbDiterima(),
+            'data' => []
         ];
+
+        foreach ($data['ppdb'] as $z) {
+            $potongan = $db->table('tbl_potongan')->where('id_jalur_masuk', $z['id_jalur_masuk'])->get()->getResult();
+            $z += ['potongan' => $potongan];
+            $data['data'][] = $z;
+        }
         return view('admin/keuangan/v_keuangan', $data);
     }
+
 
     public function listDiterima()
     {

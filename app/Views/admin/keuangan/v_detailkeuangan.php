@@ -6,10 +6,14 @@
         <div class="card card-primary">
             <div class="card-header">
                 <h3 class="card-title"><?= $subtitle ?></h3>
+                <div class="card-tools">
+                    <a href="<?= base_url('PendaftaranSiswa/listMasukKeuangan') ?>" class="btn btn-sm btn-primary btn-flat"><i class="fas fa-forward"> Kembali</i></a>
+                </div>
             </div>
             <div class="card-body p-0">
 
                 <table class="table table-bordered table-striped">
+
                     <thead>
                         <tr>
                             <th width="70px">#</th>
@@ -24,6 +28,7 @@
                             <th>BOPP</th>
                             <th>Potongan</th>
                             <th>Total</th>
+                            <th>Piutang</th>
 
                         </tr>
                     </thead>
@@ -66,15 +71,16 @@
                                     foreach ($value['potongan'] as $x) {
 
                                         if ($x->type == 'formulir') {
-                                            $total += intval($value['formulir'] - ($value['formulir'] * 50 / 100));
+                                            $total += intval($value['formulir'] - ($value['formulir'] * 100 / 100));
                                         }
                                         if ($x->type == 'dpsp') {
                                             $total += intval($value['dpsp'] - (($value['dpsp'] * 50) / 100));
                                         }
                                     }
-                                    echo rupiah($total);
+                                    echo rupiah($total + $value['dps'] + $value['bopp']);
                                     ?>
                                 </td>
+
                             </tr>
                         <?php } ?>
                     </tbody>

@@ -67,18 +67,25 @@
                                     <?php
                                     $total = 0;
                                     foreach ($value['potongan'] as $x) {
-
                                         if ($x->type == 'formulir') {
                                             $total += intval($value['formulir'] - ($value['formulir'] * $x->potongan / 100));
+                                        } else {
+                                            $total += $value['formulir'];
                                         }
                                         if ($x->type == 'dpsp') {
                                             $total += intval($value['dpsp'] - (($value['dpsp'] * $x->potongan) / 100));
+                                        } else {
+                                            $total += $value['dpsp'];
                                         }
                                         if ($x->type == 'dps') {
                                             $total += intval($value['dps'] - (($value['dps'] * $x->potongan) / 100));
+                                        } else {
+                                            $total += $value['dps'];
                                         }
                                         if ($x->type == 'bopp') {
                                             $total += intval($value['bopp'] - (($value['bopp'] * $x->potongan) / 100));
+                                        } else {
+                                            $total += $value['bopp'];
                                         }
                                     }
                                     echo rupiah($total);

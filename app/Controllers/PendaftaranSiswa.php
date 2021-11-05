@@ -186,6 +186,15 @@ class PendaftaranSiswa extends BaseController
         ];
         return view('admin/ppdb/v_laporan', $data);
     }
+    public function laporankeuangan()
+    {
+        $data = [
+            'title' => 'PPDB Online',
+            'subtitle' => 'Laporan Keuangan',
+            'ta' => $this->ModelPendaftaranSiswa->getAllDataTa(),
+        ];
+        return view('admin/keuangan/v_laporankeuangan', $data);
+    }
 
     public function cetakLaporan($tahun)
     {
@@ -197,6 +206,18 @@ class PendaftaranSiswa extends BaseController
             'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($tahun),
         ];
         return view('admin/ppdb/v_cetaklaporan', $data);
+    }
+
+    public function cetakLaporanKeuangan($tahun)
+    {
+        $data = [
+            'title' => 'PPDB Online',
+            'subtitle' => 'Laporan Keuangan',
+            'tahun' => $tahun,
+            'setting' => $this->ModelAdmin->detailSetting(),
+            'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($tahun),
+        ];
+        return view('admin/keuangan/v_cetaklaporankeuangan', $data);
     }
 
     public function editDataKeuangan($id_siswa)

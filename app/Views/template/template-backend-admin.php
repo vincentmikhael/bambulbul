@@ -354,7 +354,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </li>
 
                             <li class="nav-item">
-                                <a href="<?= base_url('pendaftaransiswa/laporan') ?>" class="nav-link">
+                                <a href="<?= base_url('pendaftaransiswa/laporankeuangan') ?>" class="nav-link">
                                     <i class="nav-icon far fa-clipboard"></i>
                                     <p>Laporan</p>
                                 </a>

@@ -63,31 +63,51 @@
                                         <?php } ?>
                                     </ul>
                                 </td>
+
                                 <td>
                                     <?php
+
                                     $total = 0;
-                                    foreach ($value['potongan'] as $x) {
-                                        if ($x->type == 'formulir') {
-                                            $total += intval($value['formulir'] - ($value['formulir'] * $x->potongan / 100));
+                                    $tipe = [];
+                                    if (count($value['potongan']) > 0) {
+                                        foreach ($value['potongan'] as $x) {
+                                            if ($x->type == 'formulir') {
+                                                $total += intval($value['formulir'] - ($value['formulir'] * $x->potongan / 100));
+                                            }
+                                            if ($x->type == 'dpsp') {
+                                                $total += intval($value['dpsp'] - (($value['dpsp'] * $x->potongan) / 100));
+                                            }
+                                            if ($x->type == 'dps') {
+                                                $total += intval($value['dps'] - (($value['dps'] * $x->potongan) / 100));
+                                            }
+                                            if ($x->type == 'bopp') {
+                                                $total += intval($value['bopp'] - (($value['bopp'] * $x->potongan) / 100));
+                                            }
+
+                                            $tipe[] = $x->type;
+                                        }
+
+
+                                        if (in_array("formulir", $tipe)) {
                                         } else {
                                             $total += $value['formulir'];
                                         }
-                                        if ($x->type == 'dpsp') {
-                                            $total += intval($value['dpsp'] - (($value['dpsp'] * $x->potongan) / 100));
+                                        if (in_array("dpsp", $tipe)) {
                                         } else {
                                             $total += $value['dpsp'];
                                         }
-                                        if ($x->type == 'dps') {
-                                            $total += intval($value['dps'] - (($value['dps'] * $x->potongan) / 100));
+                                        if (in_array("dps", $tipe)) {
                                         } else {
                                             $total += $value['dps'];
                                         }
-                                        if ($x->type == 'bopp') {
-                                            $total += intval($value['bopp'] - (($value['bopp'] * $x->potongan) / 100));
+                                        if (in_array("bopp", $tipe)) {
                                         } else {
                                             $total += $value['bopp'];
                                         }
+                                    } else {
+                                        $total = intval($value['formulir']) + intval($value['dpsp']) + intval($value['dps']) + intval($value['bopp']);
                                     }
+
                                     echo rupiah($total);
                                     ?>
                                 </td>

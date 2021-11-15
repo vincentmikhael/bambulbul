@@ -69,6 +69,11 @@ class PendaftaranSiswa extends BaseController
         return view('admin/keuangan/v_keuangan', $data);
     }
 
+    public function cetakKuitansi()
+    {
+        return view('admin/keuangan/kuitansi');
+    }
+
 
     public function listDiterima()
     {
@@ -137,6 +142,19 @@ class PendaftaranSiswa extends BaseController
         return redirect()->to('/PendaftaranSiswa/detaildatakeuangan/' . $id);
     }
 
+    public function tglkeuangan($id)
+    {
+        $db = \Config\Database::connect();
+        $db->table('tbl_tgl_pembayaran')->insert([
+            "siswa_id" => $id,
+            "tipe" => $this->request->getPost('tipe'),
+            "tanggal" => $this->request->getPost('tanggal'),
+            "total" => $this->request->getPost('total')
+        ]);
+        session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !!');
+        return redirect()->to('/PendaftaranSiswa/detaildatakeuangan/' . $id);
+    }
+
     public function detailDataKeuangan($id_siswa)
     {
         $db = \Config\Database::connect();
@@ -144,7 +162,8 @@ class PendaftaranSiswa extends BaseController
             'title' => 'PPDB Online',
             'subtitle' => 'Detail Siswa',
             'ppdb' => $this->ModelPendaftaranSiswa->getPpdbDiterimaDetail($id_siswa),
-            'data' => []
+            'data' => [],
+            'tgl_pembayaran' => $db->table('tbl_tgl_pembayaran')->where('siswa_id', $id_siswa)->get()->getResult()
         ];
 
         foreach ($data['ppdb'] as $z) {

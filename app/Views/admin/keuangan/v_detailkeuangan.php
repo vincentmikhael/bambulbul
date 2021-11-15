@@ -119,6 +119,24 @@
                         <?php } ?>
                     </tbody>
                 </table>
+
+                <h5 class="mt-5 bg-primary p-3">Tanggal Pembayaran</h5>
+                <table class="table table-bordered table-striped">
+                    <thead>
+                        <th>Tipe Pembayaran</th>
+                        <th>Tanggal</th>
+                        <th>Jumlah yang dibayarkan</th>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($tgl_pembayaran as $c) : ?>
+                            <tr>
+                                <td><?= $c->tipe ?></td>
+                                <td><?= $c->tanggal ?></td>
+                                <td><?= rupiah($c->total) ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
             </div>
         </div>
     </div>

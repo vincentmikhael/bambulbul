@@ -5,7 +5,7 @@
     <div class="card">
         <div class="card-body">
             <form class="row" method="POST" action="/pendaftaransiswa/editkeuangan/<?php echo $ppdb[0]['id_siswa'] ?>">
-                <div class="col-md-5">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="">FORMULIR</label>
                         <select class="form-control" name="formulir1">
@@ -59,7 +59,7 @@
                         <button class="btn btn-primary">Submit</button>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-4">
                     <div class="form-group">
                         <label for="">FORMULIR</label>
                         <input type="text" value="<?= $ppdb[0]['pemb_formulir'] ?>" class="form-control" name="formulir">
@@ -76,12 +76,33 @@
                         <label for="">BOPP</label>
                         <input type="text" value="<?= $ppdb[0]['pemb_bopp'] ?>" class="form-control" name="bopp">
                     </div>
-
-
                 </div>
-
-
             </form>
+            <form method="POST" action="/pendaftaransiswa/tglkeuangan/<?php echo $ppdb[0]['id_siswa'] ?>" class="col-md-6 mt-4 bg-light p-3 rounded">
+                <h5>Tanggal Pembayaran</h5>
+                <div class="form-group">
+                    <label for="">Tipe</label>
+                    <select class="form-control" name="tipe">
+                        <option value="" selected disabled>Tipe</option>
+                        <option value="formulir">Formulir</option>
+                        <option value="dpps">DPPS</option>
+                        <option value="dps">DPS</option>
+                        <option value="bopp">BOPP</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="">Tanggal Pembayaran</label>
+                    <input type="date" name="tanggal" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="">Jumlah yang dibayarkan</label>
+                    <input type="text" name="total" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+
+
 
         </div>
     </div>

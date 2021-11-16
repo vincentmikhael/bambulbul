@@ -69,9 +69,17 @@ class PendaftaranSiswa extends BaseController
         return view('admin/keuangan/v_keuangan', $data);
     }
 
-    public function cetakKuitansi()
+    public function cetakKwitansi($tahun)
     {
-        return view('admin/keuangan/kuitansi');
+        $data = [
+            'title' => 'Keuangan',
+            'subtitle' => 'Cetak Kwitansi',
+            'tahun' => $tahun,
+            'setting' => $this->ModelAdmin->detailSetting(),
+            'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($tahun),
+
+        ];
+        return view('admin/keuangan/v_cetakkwitansi', $data);
     }
 
 

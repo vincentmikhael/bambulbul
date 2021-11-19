@@ -175,7 +175,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">NOMOR KWITANSI</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky">1</td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -190,7 +190,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">NOMOR PENDAFTARAN</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"><?= $siswa['no_pendaftaran'] ?></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -205,7 +205,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">NAMA PENDAFTAR</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"><?= $siswa['nama_lengkap'] ?></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -220,7 +220,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">PROGRAM KEAHLIAN</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"><?= $siswa['jurusan'] ?></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -235,7 +235,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">BANYAKNYA UANG</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky">Bayar berapa?</td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -250,7 +250,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">RINCIAN PEMBIAYAAN</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky">TIPE</td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -273,7 +273,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky">0</td>
+                                            <td class="tg-0pky"><?= $siswa['pemb_dpsp'] ?></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -288,7 +288,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky">Rp. 2.000.000<br></td>
+                                            <td class="tg-0pky"><?= $siswa['pemb_dps'] ?><br></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -303,29 +303,29 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
+                                            <td class="tg-0pky"><?= $siswa['pemb_bopp'] ?></td>
+                                            <td class="tg-0pky"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
                                             <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky"></td>
-                                        </tr>
-                                        <tr>
-                                            <td class="tg-0pky"></td>
-                                            <td class="tg-0pky">TERBILANG</td>
+                                            <td class="tg-0pky">TOTAL</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky">DUA JUTA RUPIAH<br></td>
+                                            <td class="tg-0pky"><br></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>

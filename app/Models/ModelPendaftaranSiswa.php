@@ -167,7 +167,7 @@ class ModelPendaftaranSiswa extends Model
             ->getResultArray();
     }
 
-    public function getDataLaporan($tahun)
+    public function getDataLaporan($id)
     {
         return $this->db->table('tbl_siswa')
             ->join('tbl_jurusan', 'tbl_jurusan.id_jurusan = tbl_siswa.id_jurusan ', 'left')
@@ -178,9 +178,9 @@ class ModelPendaftaranSiswa extends Model
             ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_siswa.id_kecamatan ', 'left')
             ->join('tbl_kuisioner', 'tbl_kuisioner.id_kuisioner = tbl_siswa.id_kuisioner ', 'left')
             ->where('tbl_siswa.stat_ppdb', '1')
-            ->where('tbl_siswa.tahun', $tahun)
+            ->where('tbl_siswa.id_siswa', $id)
             ->orderBy('id_siswa', 'DESC')
             ->get()
-            ->getResultArray();
+            ->getRowArray();
     }
 }

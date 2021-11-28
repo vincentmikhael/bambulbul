@@ -164,6 +164,7 @@
                                         }
                                     }
                                 </style>
+
                                 <table id="tg-t9Wmh" class="tg">
                                     <thead>
                                         <tr>
@@ -235,7 +236,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">BANYAKNYA UANG</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky">Bayar berapa?</td>
+                                            <td class="tg-0pky"><?= rupiah($total->dpsp + $total->dps + $total->bopp) ?></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -273,7 +274,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= $siswa['pemb_dpsp'] ?></td>
+                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'dpsp'), 'total'))); ?></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -288,7 +289,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= $siswa['pemb_dps'] ?><br></td>
+                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'dps'), 'total'))); ?><br></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -303,7 +304,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= $siswa['pemb_bopp'] ?></td>
+                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'bopp'), 'total'))); ?></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -325,7 +326,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">TOTAL</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><br></td>
+                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'bopp'), 'total')) + array_sum(array_column(search($pembayaran, 'tipe', 'dps'), 'total')) + array_sum(array_column(search($pembayaran, 'tipe', 'dpsp'), 'total'))); ?></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>

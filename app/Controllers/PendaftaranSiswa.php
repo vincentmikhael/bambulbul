@@ -71,13 +71,18 @@ class PendaftaranSiswa extends BaseController
 
     public function cetakKwitansi($id)
     {
+        $db = \Config\Database::connect();
         $data = [
             'title' => 'Keuangan',
             'subtitle' => 'Cetak Kwitansi',
             'setting' => $this->ModelAdmin->detailSetting(),
             'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($id),
-
+            'pembayaran' => '',
+            'total' => '',
         ];
+        $data['total'] = $db->table('tbl_jalur_masuk')->where('id_jalur_masuk', $data['siswa']['id_jalur_masuk'])->get()->getResult()[0];
+        $data['pembayaran'] = $db->table('tbl_tgl_pembayaran')->where('siswa_id', $data['siswa']['id_siswa'])->get()->getResult('array');
+
         return view('admin/keuangan/v_cetakkwitansi', $data);
     }
 

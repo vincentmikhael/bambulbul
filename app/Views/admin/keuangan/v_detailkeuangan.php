@@ -112,7 +112,7 @@
                                     ?>
                                 </td>
                                 <td>
-                                    PIUTANG
+                                    <?php echo rupiah($total - array_sum(array_column($tgl_pembayaran, 'total'))); ?>
                                 </td>
 
                             </tr>

@@ -15,6 +15,7 @@ class Admin extends BaseController
 
     public function index()
     {
+        $db = \Config\Database::connect();
         $data = [
             'title' => 'PPDB Online',
             'subtitle' => 'Dashboard',
@@ -26,6 +27,7 @@ class Admin extends BaseController
             'totpendaftarmasuk' => $this->ModelAdmin->totalPendaftarMasuk(),
             'totpendaftarditerima' => $this->ModelAdmin->totalPendaftarDiterima(),
             'totpendaftarditolak' => $this->ModelAdmin->totalPendaftarDitolak(),
+            'pendapatan' => $db->table('tbl_tgl_pembayaran')->get()->getResult()
         ];
         return view('admin/v_dashboard', $data);
     }

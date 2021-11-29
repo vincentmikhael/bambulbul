@@ -79,9 +79,11 @@ class PendaftaranSiswa extends BaseController
             'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($id),
             'pembayaran' => '',
             'total' => '',
+            'potongan' => '',
         ];
         $data['total'] = $db->table('tbl_jalur_masuk')->where('id_jalur_masuk', $data['siswa']['id_jalur_masuk'])->get()->getResult()[0];
         $data['pembayaran'] = $db->table('tbl_tgl_pembayaran')->where('siswa_id', $data['siswa']['id_siswa'])->get()->getResult('array');
+        $data['potongan'] = $db->table('tbl_potongan')->where('id_jalur_masuk', $data['siswa']['id_jalur_masuk'])->get()->getResult();
 
         return view('admin/keuangan/v_cetakkwitansi', $data);
     }
@@ -174,7 +176,7 @@ class PendaftaranSiswa extends BaseController
             "total" => $this->request->getPost('total')
         ]);
         session()->setFlashdata('pesan', 'Data Berhasil Ditambahkan !!');
-        return redirect()->to('/PendaftaranSiswa/detaildatakeuangan/' . $id);
+        return redirect()->to('/PendaftaranSiswa/cetakKwitansi/' . $id . '?uang=' . $this->request->getPost('total') . '&tipe=' . $this->request->getPost('tipe'));
     }
 
     public function detailDataKeuangan($id_siswa)

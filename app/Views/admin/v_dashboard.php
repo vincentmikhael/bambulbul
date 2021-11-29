@@ -195,7 +195,7 @@
             <!-- small box -->
             <div class="small-box bg-info">
                 <div class="inner">
-                    <h3>Rp.</h3>
+                    <h3>Rp. <?= rupiah(array_sum(array_column($pendapatan, 'total'))) ?></h3>
                     <p>Pendapatan Masuk</p>
                 </div>
                 <div class="icon">
@@ -204,33 +204,6 @@
             </div>
         </div>
 
-        <div class="col-lg-12">
-            <!-- small box -->
-            <div class="small-box bg-danger">
-                <div class="inner">
-                    <h3>Rp.</h3>
-                    <p>Piutang</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-exclamation-triangle"></i>
-                </div>
-
-            </div>
-        </div>
-
-        <div class="col-lg-12">
-            <!-- small box -->
-            <div class="small-box bg-success">
-                <div class="inner">
-                    <h3>Rp.</h3>
-                    <p>Total Pendapatan</p>
-                </div>
-                <div class="icon">
-                    <i class="fas fa-hand-holding-usd"></i>
-                </div>
-
-            </div>
-        </div>
 
     <?php } ?>
 

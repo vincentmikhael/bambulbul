@@ -56,7 +56,7 @@
 
                             <!-- /.col -->
                             <div class="col-sm-4 invoice-col">
-                                <b>Pembayaran : (FORMULIR,DPSP,DPS,BOPP)</b><br>
+                                <b>Pembayaran : (<?= $_GET['tipe'] ?>)</b><br>
                             </div>
                             <!-- /.col -->
                         </div>
@@ -222,7 +222,51 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">BANYAKNYA UANG</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= rupiah($total->dpsp + $total->dps + $total->bopp) ?></td>
+                                            <!-- <td class="tg-0pky"><?= rupiah($total->dpsp + $total->dps + $total->bopp) ?></td> -->
+                                            <td class="tg-0pky">
+                                                <?php
+
+                                                $azz = 0;
+                                                $tipe = [];
+
+                                                foreach ($potongan as $x) {
+                                                    if ($x->type == 'formulir') {
+                                                        $azz += intval($total->formulir - ($total->formulir * $x->potongan / 100));
+                                                    }
+                                                    if ($x->type == 'dpsp') {
+                                                        $azz += intval($total->dpsp - (($total->dpsp * $x->potongan) / 100));
+                                                    }
+                                                    if ($x->type == 'dps') {
+                                                        $azz += intval($total->dps - (($total->dps * $x->potongan) / 100));
+                                                    }
+                                                    if ($x->type == 'bopp') {
+                                                        $azz += intval($total->bopp - (($total->bopp * $x->potongan) / 100));
+                                                    }
+
+                                                    $tipe[] = $x->type;
+                                                }
+
+
+                                                if (in_array("formulir", $tipe)) {
+                                                } else {
+                                                    $azz += $total->formulir;
+                                                }
+                                                if (in_array("dpsp", $tipe)) {
+                                                } else {
+                                                    $azz += $total->dpsp;
+                                                }
+                                                if (in_array("dps", $tipe)) {
+                                                } else {
+                                                    $azz += $total->dps;
+                                                }
+                                                if (in_array("bopp", $tipe)) {
+                                                } else {
+                                                    $azz += $total->bopp;
+                                                }
+
+                                                echo rupiah($azz);
+                                                ?>
+                                            </td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -260,7 +304,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'dpsp'), 'total'))); ?></td>
+                                            <td class="tg-0pky"><?= $_GET['tipe'] == 'dpsp' ? rupiah($_GET['uang']) : '-' ?></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -275,7 +319,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'dps'), 'total'))); ?><br></td>
+                                            <td class="tg-0pky"><?= $_GET['tipe'] == 'dps' ? rupiah($_GET['uang']) : '-' ?><br></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -290,7 +334,22 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'bopp'), 'total'))); ?></td>
+                                            <td class="tg-0pky"><?= $_GET['tipe'] == 'bopp' ? rupiah($_GET['uang']) : '-' ?></td>
+                                            <td class="tg-0pky"></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky">formulir</td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky"></td>
+                                            <td class="tg-0pky">:</td>
+                                            <td class="tg-0pky"><?= $_GET['tipe'] == 'formulir' ? rupiah($_GET['uang']) : '-' ?></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>
@@ -312,7 +371,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">TOTAL</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky"><?= rupiah(array_sum(array_column(search($pembayaran, 'tipe', 'bopp'), 'total')) + array_sum(array_column(search($pembayaran, 'tipe', 'dps'), 'total')) + array_sum(array_column(search($pembayaran, 'tipe', 'dpsp'), 'total'))); ?></td>
+                                            <td class="tg-0pky"><?= terbilang($_GET['uang']) ?> rupiah</td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>

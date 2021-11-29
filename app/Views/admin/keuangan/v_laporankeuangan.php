@@ -1,6 +1,5 @@
 <?= $this->extend('template/template-backend-admin') ?>
 <?= $this->section('content') ?>
-
 <div class="col-sm-12">
     <div class="card card-primary">
         <div class="card-header">
@@ -20,6 +19,7 @@
                         <th width="100px">Action</th>
                     </tr>
                 </thead>
+
                 <tbody>
                     <?php $no = 1;
                     foreach ($ta as $key => $value) { ?>

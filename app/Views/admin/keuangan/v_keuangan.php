@@ -54,7 +54,7 @@
                                 <td>
                                     <a href="<?= base_url('PendaftaranSiswa/detailDataKeuangan/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-primary"><i class="fas fa-eye"></i> View</a>
                                     <a href="<?= base_url('PendaftaranSiswa/editDataKeuangan/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-success"><i class="fas fa-eye"></i> Edit</a>
-                                    <a href="<?= base_url('PendaftaranSiswa/cetakKwitansi/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-success"><i class="fas fa-eye"></i> Cetak Kwitansi</a>
+
                                 </td>
                             </tr>
                         <?php } ?>

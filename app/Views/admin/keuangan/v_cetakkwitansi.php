@@ -38,7 +38,7 @@
                                 <h4>
                                     <img src="<?= base_url() ?>/logo/<?= $setting['logo'] ?>" alt="AdminLTE Logo" width="120px" height="120px">
 
-                                    <small class="float-right">Date: 2/10/2014</small>
+                                    <small class="float-right"><?= $now = date('d-m-Y') ?></small>
                                 </h4>
                             </div>
                             <!-- /.col -->
@@ -251,7 +251,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky">RINCIAN PEMBIAYAAN</td>
                                             <td class="tg-0pky">:</td>
-                                            <td class="tg-0pky">TIPE</td>
+                                            <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
@@ -439,7 +439,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
-                                            <td class="tg-0pky">MALANG, 22-12-2021</td>
+                                            <td class="tg-0pky">MALANG, <?= $now = date('d-m-Y') ?></td>
                                             <td class="tg-0pky"></td>
                                         </tr>
                                         <tr>

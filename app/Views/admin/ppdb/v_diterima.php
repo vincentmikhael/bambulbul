@@ -19,7 +19,6 @@
                             <th>NISN</th>
                             <th>Nama</th>
                             <th>Jalur Masuk</th>
-
                             <th width="100px">Action</th>
                         </tr>
                     </thead>
@@ -37,6 +36,7 @@
                                 <td><label class="badge badge-warning"><?= $value['jalur_masuk'] ?></label></td>
                                 <td>
                                     <a href="<?= base_url('PendaftaranSiswa/detailDataAdmin/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-primary"><i class="fas fa-eye"></i> View</a>
+                                    <a href="<?= base_url('PendaftaranSiswa/deleteData/' . $value['id_siswa']) ?>" class="btn btn-flat btn-xs btn-danger"><i class="fas fa-trash"></i> Delete</a>
                                 </td>
                             </tr>
                         <?php } ?>

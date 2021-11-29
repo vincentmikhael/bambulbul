@@ -159,6 +159,14 @@ class ModelPendaftaranSiswa extends Model
             ->update($data);
     }
 
+    public function deleteData($data)
+    {
+
+        $this->db->table('tbl_siswa')
+            ->where('id_siswa', $data['id_siswa'])
+            ->delete($data);
+    }
+
     public function getAllDataTa()
     {
         return $this->db->table('tbl_ta')

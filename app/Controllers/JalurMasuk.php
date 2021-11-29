@@ -59,7 +59,7 @@ class JalurMasuk extends BaseController
             'id_jalur_masuk' => $id_jalur_masuk,
         ];
         $this->ModelJalurMasuk->deleteData($data);
-        session()->setFlashdata('tambah', 'Data Berhasil Di Tambahkan !!');
+        session()->setFlashdata('tambah', 'Data Berhasil Di Hapus !!');
         return redirect()->to('/JalurMasuk');
     }
 }

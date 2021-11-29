@@ -136,6 +136,16 @@ class PendaftaranSiswa extends BaseController
         return view('admin/ppdb/v_detailAdmin', $data);
     }
 
+    public function deleteData($id_siswa)
+    {
+        $data = [
+            'id_siswa' => $id_siswa,
+        ];
+        $this->ModelPendaftaranSiswa->deleteData($data);
+        session()->setFlashdata('delete', 'Data Berhasil Di Delete !!');
+        return redirect()->to('/PendaftaranSiswa/listDiterima');
+    }
+
     public function editKeuangan($id)
     {
         $db = \Config\Database::connect();

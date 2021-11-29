@@ -85,7 +85,7 @@
                     <select class="form-control" name="tipe">
                         <option value="" selected disabled>Tipe</option>
                         <option value="formulir">Formulir</option>
-                        <option value="dpps">DPPS</option>
+                        <option value="dpps">DPSP</option>
                         <option value="dps">DPS</option>
                         <option value="bopp">BOPP</option>
                     </select>

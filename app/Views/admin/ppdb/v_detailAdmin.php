@@ -7,7 +7,7 @@
         <div class="card-header">
             <h3 class="card-title"><b>Formulir Pendaftaran Peseta Didik</b></h3>
             <div class="card-tools">
-                <a href="<?= base_url('PendaftaranSiswa') ?>" class="btn btn-sm btn-primary btn-flat"><i class="fas fa-forward">Kembali</i></a>
+                <a href="<?= base_url('PendaftaranSiswa/listDiterima') ?>" class="btn btn-sm btn-primary btn-flat"><i class="fas fa-forward">Kembali</i></a>
             </div>
         </div>
         <!-- /.card-header -->

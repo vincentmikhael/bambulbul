@@ -2,7 +2,6 @@
 header("Content-type: application/vnd-ms-excel");
 header("Content-Disposition: attachment; filename=Data keuangan.xls");
 ?>
-
 <html>
 
 <body>
@@ -34,13 +33,13 @@ header("Content-Disposition: attachment; filename=Data keuangan.xls");
                     <td><?= $value['jurusan'] ?></td>
                     <td><?= $value['jalur_masuk'] ?></td>
                     <td><?= $value['nama_lengkap'] ?></td>
-                    <td><?= $value['pemb_formulir'] ?></td>
-                    <td><?= $value['pemb_dpsp'] ?></td>
-                    <td><?= $value['pemb_dps'] ?></td>
-                    <td><?= $value['pemb_bopp'] ?></td>
-                    <td>Potongan</td>
-                    <td>piutang</td>
-                    <td>Total bayar</td>
+                    <td><?= array_sum(array_column(search(getUang($value['id_siswa']), 'tipe', 'formulir'), 'total')) ?></td>
+                    <td><?= array_sum(array_column(search(getUang($value['id_siswa']), 'tipe', 'dpsp'), 'total')) ?></td>
+                    <td><?= array_sum(array_column(search(getUang($value['id_siswa']), 'tipe', 'dps'), 'total')) ?></td>
+                    <td><?= array_sum(array_column(search(getUang($value['id_siswa']), 'tipe', 'bopp'), 'total')) ?></td>
+                    <td>-</td>
+                    <td>-</td>
+                    <td><?= array_sum(array_column(getUang($value['id_siswa']), 'total')) ?></td>
 
                 </tr>
             <?php } ?>

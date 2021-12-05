@@ -258,7 +258,7 @@ class PendaftaranSiswa extends BaseController
             'subtitle' => 'Laporan Keuangan',
             'tahun' => $tahun,
             'setting' => $this->ModelAdmin->detailSetting(),
-            'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($tahun),
+            'siswa' => $this->ModelPendaftaranSiswa->getDataLaporanExcel($tahun),
         ];
         return view('admin/keuangan/v_cetaklaporankeuangan', $data);
     }

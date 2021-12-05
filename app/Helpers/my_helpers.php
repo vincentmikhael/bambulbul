@@ -60,3 +60,9 @@ function terbilang($nilai)
     }
     return $hasil;
 }
+
+function getUang($id)
+{
+    $db = \Config\Database::connect();
+    return $db->table('tbl_tgl_pembayaran')->where('siswa_id', $id)->get()->getResultArray();
+}

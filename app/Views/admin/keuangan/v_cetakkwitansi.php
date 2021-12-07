@@ -341,7 +341,7 @@
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
-                                            <td class="tg-0pky">formulir</td>
+                                            <td class="tg-0pky">FORMULIR</td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>
                                             <td class="tg-0pky"></td>

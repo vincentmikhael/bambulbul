@@ -55,9 +55,7 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <button class="btn btn-primary">Submit</button>
-                    </div>
+
                 </div>
             </form>
             <form method="POST" action="/pendaftaransiswa/tglkeuangan/<?php echo $ppdb[0]['id_siswa'] ?>" class="col-md-6 mt-4 bg-light p-3 rounded">

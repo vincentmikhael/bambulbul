@@ -1,8 +1,7 @@
 <?php
 header("Content-type: application/vnd-ms-excel");
-header("Content-Disposition: attachment; filename=Data Siswa.xls");
+header("Content-Disposition: attachment; filename=Laporan Marketing $tahun.xls");
 ?>
-
 <html>
 
 <body>
@@ -53,6 +52,5 @@ header("Content-Disposition: attachment; filename=Data Siswa.xls");
     </table>
     </table>
 </body>
-
 
 </html>

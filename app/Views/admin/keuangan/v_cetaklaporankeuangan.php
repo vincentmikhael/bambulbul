@@ -1,6 +1,6 @@
 <?php
-// header("Content-type: application/vnd-ms-excel");
-// header("Content-Disposition: attachment; filename=Data keuangan.xls");
+header("Content-type: application/vnd-ms-excel");
+header("Content-Disposition: attachment; filename=Laporan Keuangan $tahun.xls");
 ?>
 <html>
 
@@ -58,7 +58,6 @@
                     </td>
                     <td><?= $jalur_masuk['formulir'] + $jalur_masuk['dpsp'] + $jalur_masuk['dps'] + $jalur_masuk['bopp'] - array_sum(array_column(getUang($value['id_siswa']), 'total')) ?></td>
                     <td><?= array_sum(array_column(getUang($value['id_siswa']), 'total')) ?></td>
-
                 </tr>
             <?php } ?>
         </tbody>

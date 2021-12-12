@@ -186,10 +186,10 @@ class ModelPendaftaranSiswa extends Model
             ->join('tbl_kecamatan', 'tbl_kecamatan.id_kecamatan = tbl_siswa.id_kecamatan ', 'left')
             ->join('tbl_kuisioner', 'tbl_kuisioner.id_kuisioner = tbl_siswa.id_kuisioner ', 'left')
             ->where('tbl_siswa.stat_ppdb', '1')
-            ->where('tbl_siswa.id_siswa', $id)
+            ->where('tbl_siswa.tahun', $id)
             ->orderBy('id_siswa', 'DESC')
             ->get()
-            ->getRowArray();
+            ->getResult('array');
     }
     public function getDataLaporanExcel($id)
     {

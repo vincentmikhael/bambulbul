@@ -4,12 +4,14 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ModelAdmin;
+use App\Models\ModelPendaftaranSiswa;
 
 class Admin extends BaseController
 {
     public function __construct()
     {
         $this->ModelAdmin = new ModelAdmin();
+        $this->ModelPendaftaranSiswa = new ModelPendaftaranSiswa();
         helper('form');
     }
 
@@ -27,8 +29,19 @@ class Admin extends BaseController
             'totpendaftarmasuk' => $this->ModelAdmin->totalPendaftarMasuk(),
             'totpendaftarditerima' => $this->ModelAdmin->totalPendaftarDiterima(),
             'totpendaftarditolak' => $this->ModelAdmin->totalPendaftarDitolak(),
-            'pendapatan' => $db->table('tbl_tgl_pembayaran')->get()->getResult()
+            'pendapatan' => $db->table('tbl_tgl_pembayaran')->get()->getResult(),
+            'ppdb' => $this->ModelPendaftaranSiswa->getPpdbDiterima(),
+            'data' => [],
+            'jalur_masuk' => []
         ];
+
+        foreach ($data['ppdb'] as $z) {
+            $potongan = $db->table('tbl_potongan')->where('id_jalur_masuk', $z['id_jalur_masuk'])->get()->getResult();
+            $z += ['potongan' => $potongan];
+            $data['data'][] = $z;
+        }
+        $data['jalur_masuk'] = $db->table('tbl_jalur_masuk')->where('id_jalur_masuk', $z['id_jalur_masuk'])->get()->getRowArray();
+
         return view('admin/v_dashboard', $data);
     }
 

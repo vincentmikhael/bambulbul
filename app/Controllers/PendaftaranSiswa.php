@@ -253,13 +253,23 @@ class PendaftaranSiswa extends BaseController
 
     public function cetakLaporanKeuangan($tahun)
     {
+        $db = \Config\Database::connect();
         $data = [
             'title' => 'PPDB Online',
             'subtitle' => 'Laporan Keuangan',
             'tahun' => $tahun,
             'setting' => $this->ModelAdmin->detailSetting(),
             'siswa' => $this->ModelPendaftaranSiswa->getDataLaporanExcel($tahun),
+            'data' => [],
+            'jalur_masuk' => []
         ];
+
+        foreach ($data['siswa'] as $z) {
+            $potongan = $db->table('tbl_potongan')->where('id_jalur_masuk', $z['id_jalur_masuk'])->get()->getResult();
+            $z += ['potongan' => $potongan];
+            $data['data'][] = $z;
+        }
+        $data['jalur_masuk'] = $db->table('tbl_jalur_masuk')->where('id_jalur_masuk', $z['id_jalur_masuk'])->get()->getRowArray();
         return view('admin/keuangan/v_cetaklaporankeuangan', $data);
     }
 

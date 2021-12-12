@@ -203,6 +203,26 @@
                 </div>
             </div>
         </div>
+        <div class="col-lg-12">
+            <!-- small box -->
+            <div class="small-box bg-info">
+                <div class="inner">
+                    <h3>Rp.
+                        <?php
+                        $val = 0;
+                        foreach ($data as $key => $value) {
+                            $val += $jalur_masuk['formulir'] + $jalur_masuk['dpsp'] + $jalur_masuk['dps'] + $jalur_masuk['bopp'] - array_sum(array_column(getUang($value['id_siswa']), 'total'));
+                        }
+                        echo rupiah($val);
+                        ?>
+                    </h3>
+                    <p>Piutang</p>
+                </div>
+                <div class="icon">
+                    <i class="fas fa-coins"></i>
+                </div>
+            </div>
+        </div>
 
 
     <?php } ?>

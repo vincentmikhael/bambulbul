@@ -76,7 +76,7 @@ class PendaftaranSiswa extends BaseController
             'title' => 'Keuangan',
             'subtitle' => 'Cetak Kwitansi',
             'setting' => $this->ModelAdmin->detailSetting(),
-            'siswa' => $this->ModelPendaftaranSiswa->getDataLaporan($id),
+            'siswa' => $this->ModelPendaftaranSiswa->detailData($id),
             'pembayaran' => '',
             'total' => '',
             'potongan' => '',
